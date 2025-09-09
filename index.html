@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NFL Betting Formula App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>NFL Betting Formula App</h1>
+    <p>Enter advanced stats & lines, get automated betting decisions!</p>
+  </header>
+  <main>
+    <form id="bet-form" novalidate>
+      <section class="teams">
+        <h2>Teams & Ratings</h2>
+        <div class="flex-row">
+          <div class="team-block">
+            <h3>Team A</h3>
+            <label>Team Name <input type="text" id="teamA_name" required></label>
+            <label>Rating <input type="number" id="teamA_rating" step="0.01" required></label>
+            <label>Home Adv <input type="number" id="teamA_homeadv" step="0.01"></label>
+            <label>Off EPA <input type="number" id="teamA_offepa" step="0.01"></label>
+            <label>Def EPA <input type="number" id="teamA_defepa" step="0.01"></label>
+            <label>Context <input type="text" id="teamA_context" placeholder="e.g. 0.1,0.2"></label>
+            <label>Players<br>
+              <textarea id="teamA_players" placeholder="One per line: name,type,line,odds"></textarea>
+            </label>
+          </div>
+          <div class="team-block">
+            <h3>Team B</h3>
+            <label>Team Name <input type="text" id="teamB_name" required></label>
+            <label>Rating <input type="number" id="teamB_rating" step="0.01" required></label>
+            <label>Home Adv <input type="number" id="teamB_homeadv" step="0.01"></label>
+            <label>Off EPA <input type="number" id="teamB_offepa" step="0.01"></label>
+            <label>Def EPA <input type="number" id="teamB_defepa" step="0.01"></label>
+            <label>Context <input type="text" id="teamB_context" placeholder="e.g. 0.1,0.2"></label>
+            <label>Players<br>
+              <textarea id="teamB_players" placeholder="One per line: name,type,line,odds"></textarea>
+            </label>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Market Lines</h2>
+        <label>Spread (TeamB - TeamA): <input type="number" id="spread" step="0.5" required></label>
+        <label>Total: <input type="number" id="total" step="0.5" required></label>
+        <label>Moneyline A (decimal odds): <input type="number" id="mlA" step="0.01"></label>
+        <label>Moneyline B (decimal odds): <input type="number" id="mlB" step="0.01"></label>
+      </section>
+      <button type="submit">Run Formula</button>
+      <span id="form-message" aria-live="polite"></span>
+    </form>
+    <section id="results" hidden>
+      <h2>Betting Decision</h2>
+      <div id="decision"></div>
+    </section>
+  </main>
+  <footer>
+    <small>&copy; 2025 NFL Betting Formula App. <a href="https://github.com/gu3tekks/Sports" target="_blank">GitHub</a></small>
+  </footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
