@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NFL Betting Formula App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>NFL Betting Formula App</h1>
+    <p>Enter advanced stats & lines, get automated betting decisions!</p>
+  </header>
+  <main>
+    <form id="bet-form">
+      <section>
+        <h2>Teams & Ratings</h2>
+        <label>Team A Name: <input type="text" id="teamA_name" required></label>
+        <label>Team A Rating: <input type="number" id="teamA_rating" step="0.01" required></label>
+        <label>Team A Home Adv: <input type="number" id="teamA_homeadv" step="0.01"></label>
+        <label>Team A Off EPA: <input type="number" id="teamA_offepa" step="0.01"></label>
+        <label>Team A Def EPA: <input type="number" id="teamA_defepa" step="0.01"></label>
+        <label>Team A Context (comma, e.g. 0.1,0.2): <input type="text" id="teamA_context"></label>
+        <label>Team A Players (one per line: name,type,line,odds):<br>
+          <textarea id="teamA_players" placeholder="e.g. Joe Smith,RushYds,59.5,1.87"></textarea>
+        </label>
+        <hr>
+        <label>Team B Name: <input type="text" id="teamB_name" required></label>
+        <label>Team B Rating: <input type="number" id="teamB_rating" step="0.01" required></label>
+        <label>Team B Home Adv: <input type="number" id="teamB_homeadv" step="0.01"></label>
+        <label>Team B Off EPA: <input type="number" id="teamB_offepa" step="0.01"></label>
+        <label>Team B Def EPA: <input type="number" id="teamB_defepa" step="0.01"></label>
+        <label>Team B Context (comma, e.g. 0.1,0.2): <input type="text" id="teamB_context"></label>
+        <label>Team B Players (one per line: name,type,line,odds):<br>
+          <textarea id="teamB_players" placeholder="e.g. John Doe,RecYds,44.5,2.05"></textarea>
+        </label>
+      </section>
+      <section>
+        <h2>Market Lines</h2>
+        <label>Spread (TeamB - TeamA): <input type="number" id="spread" step="0.5" required></label>
+        <label>Total: <input type="number" id="total" step="0.5" required></label>
+        <label>Moneyline A (decimal odds): <input type="number" id="mlA" step="0.01"></label>
+        <label>Moneyline B (decimal odds): <input type="number" id="mlB" step="0.01"></label>
+      </section>
+      <button type="submit">Run Formula</button>
+    </form>
+    <section id="results">
+      <h2>Betting Decision</h2>
+      <div id="decision"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
